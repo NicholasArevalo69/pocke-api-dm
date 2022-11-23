@@ -56,7 +56,7 @@ export class PockeApiDm extends LitElement {
           return Promise.reject(response);
         }
       })
-      then((data) => {
+      .then((data) => {
         this._sendData(data)
       })
       .catch((error) => {
