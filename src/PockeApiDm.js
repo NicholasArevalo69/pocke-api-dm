@@ -33,13 +33,6 @@ export class PockeApiDm extends LitElement {
     this.name = 'Cells';
   }
 
-  static get styles() {
-    return [
-      styles,
-      getComponentSharedStyles('pocke-api-dm-shared-styles')
-    ];
-  }
-
   // Define a template
   render() {
     return html`
