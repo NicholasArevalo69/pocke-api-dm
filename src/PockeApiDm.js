@@ -1,6 +1,5 @@
 import { LitElement, html, } from 'lit-element';
 import { getComponentSharedStyles } from '@bbva-web-components/bbva-core-lit-helpers';
-import styles from './PockeApiDm-styles.js';
 /**
 ![LitElement component](https://img.shields.io/badge/litElement-component-blue.svg)
 
