@@ -23,14 +23,45 @@ export class PockeApiDm extends LitElement {
   // Declare properties
   static get properties() {
     return {
-      name: { type: String, },
+      url: { type: String, },
+      method: { type: String, }
     };
   }
 
   // Initialize properties
   constructor() {
     super();
-    this.name = 'Cells';
+    this.url = null;
+    this.method = null;
+  }
+
+  firstUpdated(){
+    this.getData();
+  }
+
+  _sendData(data){
+    this.dispatchEvent(new CustomEvent('pokeData', {
+      bubbles: true,
+      composed: true,
+      detail: { data }
+    }))
+  }
+
+  getData() {
+    fetch(this.url, { method: this.method})
+      .then((response) => {
+        if(response.ok){
+          return response.json();
+        } else {
+          return Promise.reject(response);
+        }
+      })
+      then((data) => {
+        this._sendData(data)
+      })
+      .catch((error) => {
+        console.warn('Fallo el consumir la PokeApi', error);
+      })
   }
 
   // Define a template
