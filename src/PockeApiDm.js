@@ -64,11 +64,4 @@ export class PockeApiDm extends LitElement {
       })
   }
 
-  // Define a template
-  render() {
-    return html`
-      <slot></slot>
-      <p>Welcome to ${this.name}</p>
-    `;
-  }
 }
